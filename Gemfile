@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.2'
 
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.6'
 gem 'devise'
 gem 'paperclip'
 gem 'therubyracer'
 gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
+gem 'twitter-bootstrap-rails'
 
 gem 'bootstrap_form'
 gem 'rails_email_validator'
@@ -21,8 +21,8 @@ gem 'jquery-ui-rails'
 
 
 # dafuq?
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
-gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem 'ransack'
+gem 'polyamorous'
 gem 'by_star'
 gem 'morrisjs-rails'
 gem 'raphael-rails'
@@ -51,6 +51,7 @@ group :development do
   gem 'better_errors'
   gem 'annotate'
   gem 'rubocop'
+  gem 'capistrano-rails'
 end
 
 group :test do
@@ -65,4 +66,8 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'pry-byebug'
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
 end
+
+
