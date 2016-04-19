@@ -7,7 +7,7 @@ window.sumo_action = ->
   return
 
 window.sumo_animation_success = ->
-  $("<audio id='sumo_stomp'><source src='https://drunken-bartender.s3.amazonaws.com/misc/development/sumo_stomp.mp3' type='audio/mpeg'></audio>").appendTo "body"
+  $("<audio id='sumo_stomp'><source src='/system/sounds/sumo_stomp.mp3' type='audio/mpeg'></audio>").appendTo "body"
   $("#sumo_stomp")[0].play()
   $("#sumo_action").show()
   $("#sumo_action").addClass("go").delay(300).queue (next) ->
@@ -27,7 +27,7 @@ window.sumo_animation_success = ->
     return
 
 window.sumo_animation_error = ->
-  $("<audio id='sumo_error'><source src='https://drunken-bartender.s3.amazonaws.com/misc/development/sumo_error.mp3' type='audio/mpeg'></audio>").appendTo "body"
+  $("<audio id='sumo_error'><source src='/system/sounds/sumo_error.mp3' type='audio/mpeg'></audio>").appendTo "body"
   $("#sumo_error")[0].play()
   $("#sumo_action").show()
   $( "#container" ).animate({backgroundColor: "#a94442"});
