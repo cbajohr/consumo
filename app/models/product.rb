@@ -18,25 +18,10 @@
 
 class Product < ActiveRecord::Base
 
-  if Rails.env.production?
-    has_attached_file :picture,
-      storage: :s3,
-      s3_credentials:  {
-        bucket:  ENV['DB_S3_BUCKET'],
-        access_key_id:  ENV['DB_S3_ID'],
-        secret_access_key:  ENV['DB_S3_KEY']
-      },
-      path:  "/images/:rails_env/products/:id/:style.:extension",
-      url:  ":s3_domain_url",
-      styles:  { medium:  "200x200>", thumb:  "100x100>" }
-  elsif Rails.env.testing?
-    has_attached_file :picture,
-      styles:  { medium:  "200x200>", thumb:  "100x100>" },
-      path: "public/system/testing/products/:id/:style.:extension"
-  else
-    has_attached_file :picture,
-      styles:  { medium:  "200x200>", thumb:  "100x100>" }
-  end
+  has_attached_file :picture,
+    url:  "/system/products/:id/:style.:extension",
+    path:  "/system/products/:id/:style.:extension",
+    styles:  { medium:  "200x200>", thumb:  "100x100>" }
 
   belongs_to :category
   belongs_to :sku
